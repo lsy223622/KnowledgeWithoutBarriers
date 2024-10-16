@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         移除录直播应用视频上的水印
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  使用 MutationObserver 在水印刚出现时立即移除 (#myVideos > div.mark-content 和 #myVideos1 > div.mark-content)
 // @match        http://newesxidian.chaoxing.com/*
 // @grant        none
@@ -30,6 +30,7 @@
       for (let mutation of mutationsList) {
         if (mutation.type === "childList") {
           removeElements();
+          break;
         }
       }
     };
